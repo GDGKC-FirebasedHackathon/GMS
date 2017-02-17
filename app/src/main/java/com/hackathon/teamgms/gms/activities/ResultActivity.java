@@ -12,6 +12,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hackathon.teamgms.gms.R;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ResultActivity extends AppCompatActivity {
     private final String TAG = ResultActivity.class.getSimpleName();
 
@@ -25,12 +28,12 @@ public class ResultActivity extends AppCompatActivity {
 
     private String mQestionId;
 
-    private Long countOne;
-    private Long countTwo;
-    private Long countThree;
-    private Long countFour;
+    private Long choiceCount1;
+    private Long choiceCount2;
+    private Long choiceCount3;
+    private Long choiceCount4;
 
-    private String qestionName;
+    private String question;
     private String resultAnswer;
 
 
@@ -42,10 +45,7 @@ public class ResultActivity extends AppCompatActivity {
         tv_userQ = (TextView)findViewById(R.id.tv_userQ);
         tv_userA = (TextView)findViewById(R.id.tv_userA);
 
-        countOne = (long)0;
-        countTwo = (long)0;
-        countThree = (long)0;
-        countFour = (long)0;
+        //mQestionId초기화 : 내장디비에서 가져와...
 
         /*
         //mFirebaseUid = UserUtil.loadUserFirebaseUid();
@@ -58,7 +58,6 @@ public class ResultActivity extends AppCompatActivity {
         }*/
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        mDataReference = database.getReference("answers");
         mQuestionReference = database.getReference("questions");
 
     }
@@ -71,47 +70,37 @@ public class ResultActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot child : dataSnapshot.getChildren()) {
-                    //Boolean isRead = (Boolean)child.child("isRead").getValue();
-                    String questionId = (String)child.child("questionId").getValue();
-                    //if(isRead != null && isRead == false && questionId.equals(mQestionId)) {
-                    if(questionId.equals(mQestionId)) {
-                        Long answer = (Long) child.child("answer").getValue();
-                        if(answer != null) {
-                            if (answer.intValue() == 1) countOne++;
-                            else if (answer.intValue() == 2) countTwo++;
-                            else if (answer.intValue() == 3) countThree++;
-                            else countFour++;
-                        }
-                    }
+                DataSnapshot child = dataSnapshot.child(mQestionId);
+
+                if(!(Boolean)child.child("isEnd").getValue()) {
+                    question = (String) child.child("question").getValue();
+
+                    choiceCount1 = (Long) child.child("choiceCount1").getValue();
+                    choiceCount2 = (Long) child.child("choiceCount2").getValue();
+                    choiceCount3 = (Long) child.child("choiceCount3").getValue();
+                    choiceCount4 = (Long) child.child("choiceCount4").getValue();
+
+                    if(choiceCount1 != null && choiceCount1 > choiceCount2 && choiceCount1 > choiceCount3 && choiceCount1 > choiceCount4)
+                        resultAnswer = question = (String) child.child("choice1").getValue();
+                    else if(choiceCount2 != null && choiceCount2 > choiceCount1 && choiceCount2 > choiceCount3 && choiceCount2 > choiceCount4)
+                        resultAnswer = question = (String) child.child("choice2").getValue();
+                    else if(choiceCount3 != null && choiceCount3 > choiceCount1 && choiceCount3 > choiceCount2 && choiceCount3 > choiceCount4)
+                        resultAnswer = question = (String) child.child("choice3").getValue();
+                    else if(choiceCount4 != null && choiceCount4 > choiceCount1 && choiceCount4 > choiceCount2 && choiceCount4 > choiceCount3)
+                        resultAnswer = question = (String) child.child("choice4").getValue();
+
                 }
 
-                mQuestionReference.addListenerForSingleValueEvent( new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                //controller 안으로 넣기
+                Map<String, Object> updateValues = new HashMap<>();
+                updateValues.put("isEnd", "true");
+                FirebaseDatabase.getInstance().getReference().child("questions").child(mQestionId).updateChildren(updateValues);
 
-                        for (DataSnapshot child : dataSnapshot.getChildren()) {
-                            qestionName = (String)child.child("questionName").getValue();
-                            if(countOne > countTwo && countOne > countThree && countOne > countFour)
-                                resultAnswer = (String)child.child("answerOne").getValue();
-                            else if(countTwo > countOne && countTwo > countThree && countTwo > countFour)
-                                resultAnswer = (String)child.child("answerTwo").getValue();
-                            else if(countThree > countOne && countThree > countThree && countThree > countFour)
-                                resultAnswer = (String)child.child("answerThree").getValue();
-                            else
-                                resultAnswer = (String)child.child("answerFour").getValue();
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.w(TAG, "loadQuestion:onCancelled", databaseError.toException());
-                    }
-                });
 
                 updateResultInterface();
+
             }
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -120,7 +109,7 @@ public class ResultActivity extends AppCompatActivity {
 
         };
         if(mReadListner != null) {
-            mDataReference.addListenerForSingleValueEvent(readListner);
+            mQuestionReference.addListenerForSingleValueEvent(readListner);
         }
         mReadListner = readListner;
     }
@@ -129,14 +118,14 @@ public class ResultActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         if(mReadListner != null) {
-            if(mDataReference != null) {
-                mDataReference.removeEventListener(mReadListner);
+            if(mQuestionReference != null) {
+                mQuestionReference.removeEventListener(mReadListner);
             }
         }
     }
 
     public void updateResultInterface() {
-        tv_userQ.setText(qestionName);
+        tv_userQ.setText(question);
         tv_userA.setText(resultAnswer);
     }
 }
