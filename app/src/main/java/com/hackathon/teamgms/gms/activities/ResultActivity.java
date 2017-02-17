@@ -13,6 +13,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.hackathon.teamgms.gms.R;
 import com.hackathon.teamgms.gms.controllers.DBController;
 import com.hackathon.teamgms.gms.controllers.QuestionController;
+import com.hackathon.teamgms.gms.models.Question;
 
 public class ResultActivity extends AppCompatActivity {
     private final String TAG = ResultActivity.class.getSimpleName();
@@ -29,10 +30,10 @@ public class ResultActivity extends AppCompatActivity {
 
     private String questionNum;
 
-    private Long choiceCount1;
-    private Long choiceCount2;
-    private Long choiceCount3;
-    private Long choiceCount4;
+    private Long choice1Count;
+    private Long choice2Count;
+    private Long choice3Count;
+    private Long choice4Count;
 
     private String question;
     private String resultAnswer;
@@ -75,22 +76,25 @@ public class ResultActivity extends AppCompatActivity {
 
                 DataSnapshot child = dataSnapshot.child(questionNum);
 
-                if(!(Boolean)child.child("isEnd").getValue()) {
-                    question = (String) child.child("question").getValue();
+                Question chkQuest =  Question.parseQuestionSnapshot(child);
 
-                    choiceCount1 = (Long) child.child("choiceCount1").getValue();
-                    choiceCount2 = (Long) child.child("choiceCount2").getValue();
-                    choiceCount3 = (Long) child.child("choiceCount3").getValue();
-                    choiceCount4 = (Long) child.child("choiceCount4").getValue();
+                if(!chkQuest.isEnd) {
 
-                    if(choiceCount1 != null && choiceCount1 > choiceCount2 && choiceCount1 > choiceCount3 && choiceCount1 > choiceCount4)
-                        resultAnswer = question = (String) child.child("choice1").getValue();
-                    else if(choiceCount2 != null && choiceCount2 > choiceCount1 && choiceCount2 > choiceCount3 && choiceCount2 > choiceCount4)
-                        resultAnswer = question = (String) child.child("choice2").getValue();
-                    else if(choiceCount3 != null && choiceCount3 > choiceCount1 && choiceCount3 > choiceCount2 && choiceCount3 > choiceCount4)
-                        resultAnswer = question = (String) child.child("choice3").getValue();
-                    else if(choiceCount4 != null && choiceCount4 > choiceCount1 && choiceCount4 > choiceCount2 && choiceCount4 > choiceCount3)
-                        resultAnswer = question = (String) child.child("choice4").getValue();
+                    question = chkQuest.question;
+
+                    choice1Count = chkQuest.choice1Count;
+                    choice2Count = chkQuest.choice2Count;
+                    choice3Count = chkQuest.choice3Count;
+                    choice4Count = chkQuest.choice4Count;;
+
+                    if(choice1Count != null && choice1Count > choice2Count && choice1Count > choice3Count && choice1Count > choice4Count)
+                        resultAnswer = chkQuest.choice1;
+                    else if(choice2Count != null && choice2Count > choice1Count && choice2Count > choice3Count && choice2Count > choice4Count)
+                        resultAnswer = chkQuest.choice2;
+                    else if(choice3Count != null && choice3Count > choice1Count && choice3Count > choice2Count && choice3Count > choice4Count)
+                        resultAnswer = chkQuest.choice3;
+                    else if(choice4Count != null && choice4Count > choice1Count && choice4Count > choice2Count && choice4Count > choice3Count)
+                        resultAnswer = chkQuest.choice4;
 
                 }
 
