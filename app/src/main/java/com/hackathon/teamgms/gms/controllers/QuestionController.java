@@ -1,15 +1,7 @@
 package com.hackathon.teamgms.gms.controllers;
 
-import android.util.Log;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.MutableData;
-import com.google.firebase.database.Transaction;
 import com.hackathon.teamgms.gms.models.Question;
-import com.hackathon.teamgms.gms.models.QuestionCount;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,6 +22,22 @@ public class QuestionController {
         newQuestionMap.put("/questions/question", newQuestionValues);
 
         FirebaseDatabase.getInstance().getReference().updateChildren(newQuestionMap);
+    }
+
+    public static void updateChoice(String questionNum, int choice, int chCount) {
+        Map<String, Object> updateValues = new HashMap<>();
+        if(choice == 1)
+            updateValues.put("choice1Count", chCount);
+        else if(choice == 2)
+            updateValues.put("choice2Count", chCount);
+        else if(choice == 3)
+            updateValues.put("choice3Count", chCount);
+        else if(choice == 4)
+            updateValues.put("choic42Count", chCount);
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put("/questions/" + questionNum, updateValues);
+
+        FirebaseDatabase.getInstance().getReference().updateChildren(childUpdates);
     }
 
     public static void updateEnd(String questionNum) {
