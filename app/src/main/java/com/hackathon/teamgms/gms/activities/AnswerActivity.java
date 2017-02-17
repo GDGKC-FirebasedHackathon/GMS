@@ -42,6 +42,11 @@ public class AnswerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
 
+        chkQuest = (Question)getIntent().getSerializableExtra("question");
+
+        if(chkQuest == null)
+            finish();
+
         radioGroup_answer = (RadioGroup)findViewById(R.id.radioGroup_answer);
         radioGroup_answer.setOnCheckedChangeListener(choiceChange);
 
@@ -52,42 +57,48 @@ public class AnswerActivity extends AppCompatActivity {
 
         tv_chooseQ = (TextView)findViewById(R.id.tv_chooseQ);
 
+        tv_chooseQ.setText(chkQuest.getQuestion());
+        rb_one.setText(chkQuest.choice1);
+        rb_two.setText(chkQuest.choice2);
+        rb_three.setText(chkQuest.choice3);
+        rb_four.setText(chkQuest.choice4);
+
         check = 0;
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        mReference = database.getReference("questions");
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        mReference = database.getReference("questions");
     }
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        ValueEventListener readListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot child : dataSnapshot.getChildren()) {
-                    chkQuest =  Question.parseQuestionSnapshot(child);
-                    if(chkQuest.isEnd)
-                        continue;
-                    else
-                        break;
-                }
-
-                updatetInterface();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "loadUserList:onCancelled", databaseError.toException());
-            }
-        };
-        if(mReference != null) {
-            mReference.addListenerForSingleValueEvent(readListener);
-        }
-        mReadListner = readListener;
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        ValueEventListener readListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                for(DataSnapshot child : dataSnapshot.getChildren()) {
+//                    chkQuest =  Question.parseQuestionSnapshot(child);
+//                    if(chkQuest.isEnd)
+//                        continue;
+//                    else
+//                        break;
+//                }
+//
+//                updatetInterface();
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Log.w(TAG, "loadUserList:onCancelled", databaseError.toException());
+//            }
+//        };
+//        if(mReference != null) {
+//            mReference.addListenerForSingleValueEvent(readListener);
+//        }
+//        mReadListner = readListener;
+//    }
 
     @Override
     public void onStop() {
@@ -114,13 +125,13 @@ public class AnswerActivity extends AppCompatActivity {
         }
     };
 
-    private void updatetInterface() {
-        tv_chooseQ.setText(chkQuest.question);
-        rb_one.setText(chkQuest.choice1);
-        rb_two.setText(chkQuest.choice2);
-        rb_three.setText(chkQuest.choice3);
-        rb_four.setText(chkQuest.choice4);
-    }
+//    private void updatetInterface() {
+//        tv_chooseQ.setText(chkQuest.question);
+//        rb_one.setText(chkQuest.choice1);
+//        rb_two.setText(chkQuest.choice2);
+//        rb_three.setText(chkQuest.choice3);
+//        rb_four.setText(chkQuest.choice4);
+//    }
 
     public void onClick(View v) {
         if(v.getId() == R.id.btn_send) {

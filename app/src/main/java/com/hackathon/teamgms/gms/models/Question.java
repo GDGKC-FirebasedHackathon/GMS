@@ -2,10 +2,11 @@ package com.hackathon.teamgms.gms.models;
 
 import com.google.firebase.database.DataSnapshot;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Question {
+public class Question implements Serializable{
     public String userId;
     public String question;
 
