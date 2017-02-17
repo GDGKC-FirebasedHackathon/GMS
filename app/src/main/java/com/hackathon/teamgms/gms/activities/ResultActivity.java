@@ -11,12 +11,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hackathon.teamgms.gms.R;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.hackathon.teamgms.gms.controllers.DBController;
+import com.hackathon.teamgms.gms.controllers.QuestionController;
 
 public class ResultActivity extends AppCompatActivity {
     private final String TAG = ResultActivity.class.getSimpleName();
+
+    private DBController dbController;
 
     private String mFirebaseUid;
     private DatabaseReference mDataReference;
@@ -26,7 +27,7 @@ public class ResultActivity extends AppCompatActivity {
     private TextView tv_userQ;
     private TextView tv_userA;
 
-    private String mQestionId;
+    private String questionNum;
 
     private Long choiceCount1;
     private Long choiceCount2;
@@ -42,10 +43,12 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        dbController = new DBController(this);
+
         tv_userQ = (TextView)findViewById(R.id.tv_userQ);
         tv_userA = (TextView)findViewById(R.id.tv_userA);
 
-        //mQestionId초기화 : 내장디비에서 가져와...
+        //questionNum = dbController.readQuestionNum();
 
         /*
         //mFirebaseUid = UserUtil.loadUserFirebaseUid();
@@ -70,7 +73,7 @@ public class ResultActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                DataSnapshot child = dataSnapshot.child(mQestionId);
+                DataSnapshot child = dataSnapshot.child(questionNum);
 
                 if(!(Boolean)child.child("isEnd").getValue()) {
                     question = (String) child.child("question").getValue();
@@ -91,16 +94,10 @@ public class ResultActivity extends AppCompatActivity {
 
                 }
 
-                //controller 안으로 넣기
-                Map<String, Object> updateValues = new HashMap<>();
-                updateValues.put("isEnd", "true");
-                FirebaseDatabase.getInstance().getReference().child("questions").child(mQestionId).updateChildren(updateValues);
-
+                QuestionController.updateEnd(questionNum);
 
                 updateResultInterface();
-
             }
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -124,8 +121,13 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
-    public void updateResultInterface() {
-        tv_userQ.setText(question);
-        tv_userA.setText(resultAnswer);
+    private void updateResultInterface() {
+        if(question != null && resultAnswer != null) {
+            tv_userQ.setText(question);
+            tv_userA.setText(resultAnswer);
+        } else {
+            tv_userQ.setText("");
+            tv_userA.setText("");
+        }
     }
 }
