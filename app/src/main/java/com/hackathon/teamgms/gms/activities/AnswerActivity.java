@@ -12,10 +12,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.MutableData;
-import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 import com.hackathon.teamgms.gms.R;
+import com.hackathon.teamgms.gms.controllers.QuestionController;
 import com.hackathon.teamgms.gms.models.Question;
 
 public class AnswerActivity extends AppCompatActivity {
@@ -33,6 +32,10 @@ public class AnswerActivity extends AppCompatActivity {
     private ValueEventListener mReadListner;
 
     Question chkQuest;
+
+    //
+    int qCount;
+    String questionNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,12 +125,29 @@ public class AnswerActivity extends AppCompatActivity {
     public void onClick(View v) {
         if(v.getId() == R.id.btn_send) {
             if(check != 0) {
-                onUpdateData(mReference);
+                switch (check) {
+                    case 1:
+                        qCount = chkQuest.choice1Count.intValue();
+                        break;
+                    case 2:
+                        qCount = chkQuest.choice2Count.intValue();
+                        break;
+                    case 3:
+                        qCount = chkQuest.choice3Count.intValue();
+                        break;
+                    case 4:
+                        qCount = chkQuest.choice4Count.intValue();
+                        break;
+                }
+                qCount++;
+
+                QuestionController.updateChoice(questionNum,check,qCount);
+                //onUpdateData(mReference);
             }
         }
     }
 
-    private void onUpdateData(DatabaseReference postRef) {
+   /* private void onUpdateData(DatabaseReference postRef) {
         postRef.runTransaction(new Transaction.Handler() {
             @Override
             public Transaction.Result doTransaction(MutableData mutableData) {
@@ -153,5 +173,5 @@ public class AnswerActivity extends AppCompatActivity {
                 Log.d(TAG, "postTransaction:onComplete:" + databaseError);
             }
         });
-    }
+    }*/
 }
