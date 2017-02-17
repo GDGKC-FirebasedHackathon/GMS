@@ -2,8 +2,10 @@ package com.hackathon.teamgms.gms.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +15,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.hackathon.teamgms.gms.R;
+import com.hackathon.teamgms.gms.models.User;
+import com.hackathon.teamgms.gms.utils.UserUtil;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +38,16 @@ import com.hackathon.teamgms.gms.models.Question;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private final String TAG = HomeActivity.class.getSimpleName();
+
+    private String mFirebaseUid;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mUserReference;
+    private User mUser;
+    TextView tvName;
+    TextView tvEmail;
+    ImageView imgUser;
+    View headerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +64,34 @@ public class HomeActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-/*  // 로컬 디바이스에 저장된 FirebaseUid 획득
-        mFirebaseUid = UserUtil.loadUserFirebaseUid();
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                    updateUI();
+                }
+            }
+        });
+        // 로컬 디바이스에 저장된 FirebaseUid 획득
+        mFirebaseUid = UserUtil.loadUserFirebaseUid(this);
+        Log.d("uid", mFirebaseUid);
+
         // init firebase
         if (mFirebaseUid == null || FirebaseAuth.getInstance().getCurrentUser() == null){
             mUserReference = null;
         }
         else {
             mUserReference = FirebaseDatabase.getInstance().getReference().child("users");
-        }*/
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -55,6 +100,22 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        headerView = navigationView.getHeaderView(0);
+    }
+
+    private void updateUI() {
+        tvName.setText("Login 하세요");
+        tvEmail.setVisibility(View.INVISIBLE);
+        imgUser.setVisibility(View.INVISIBLE);
+    }
+
+    private void updateUserInterface() {
+        tvName = (TextView)headerView.findViewById(R.id.tvName);
+        tvEmail = (TextView)headerView.findViewById(R.id.tvEmail);
+        imgUser = (ImageView)headerView.findViewById(R.id.imgUser);
+        tvName.setText(mUser.userName);
+        tvEmail.setText(mUser.userEmail);
+        Glide.with(this).load(mUser.profilePictureUrl).into(imgUser);
     }
 
     @Override
@@ -107,6 +168,9 @@ public class HomeActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if(id == R.id.action_logOut) {
+            mAuth.signOut();
+
         }
 
         return super.onOptionsItemSelected(item);

@@ -6,5 +6,6 @@ package com.hackathon.teamgms.gms;
 
 public class Config {
     public static final String SHARED_PREF_NAME = "pref";
+    public static final String SHARED_UID = "FirebaseUid";
 
 }
