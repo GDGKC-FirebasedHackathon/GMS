@@ -56,7 +56,7 @@ public class SendQuestionActivity extends AppCompatActivity {
 
         //화면 전환 및 토스트 출력
         Toast.makeText(this, "Send Question Test", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         finish();
     }
 }
