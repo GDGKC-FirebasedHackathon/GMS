@@ -11,7 +11,6 @@
     android:orientation="vertical"
     tools:context="com.hackathon.teamgms.gms.activities.MainActivity">
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,5 +35,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_vertical_margin"
             />
+        <Button
+            android:id="@+id/btnDisconnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:text="disconnect"
+            android:background="@color/common_white"/>
     </LinearLayout>
 </LinearLayout>
