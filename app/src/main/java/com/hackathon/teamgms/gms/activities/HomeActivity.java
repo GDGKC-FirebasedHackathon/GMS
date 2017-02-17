@@ -103,6 +103,11 @@ public class HomeActivity extends AppCompatActivity
         headerView = navigationView.getHeaderView(0);
     }
 
+    public void onClick(View v) {
+        Intent intent = new Intent(this, SendQuestionActivity.class);
+        startActivity(intent);
+    }
+
     private void updateUI() {
         tvName.setText("Login 하세요");
         tvEmail.setVisibility(View.INVISIBLE);
