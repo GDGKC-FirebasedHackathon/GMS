@@ -89,4 +89,57 @@ public class Question {
 
         return question;
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getChoice1() {
+        return choice1;
+    }
+
+    public String getChoice2() {
+        return choice2;
+    }
+
+    public String getChoice3() {
+        return choice3;
+    }
+
+    public String getChoice4() {
+        return choice4;
+    }
+
+    public Long getChoice1Count() {
+        return choice1Count;
+    }
+
+    public Long getChoice2Count() {
+        return choice2Count;
+    }
+
+    public Long getChoice3Count() {
+        return choice3Count;
+    }
+
+    public Long getChoice4Count() {
+        return choice4Count;
+    }
+
+    public Boolean getEnd() {
+        return isEnd;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public Long getEndCount() {
+        return endCount;
+    }
+
 }
