@@ -98,7 +98,8 @@ public class ResultActivity extends AppCompatActivity {
 
                 }
 
-                QuestionController.updateEnd(questionNum);
+                chkQuest.isEnd = true;
+                QuestionController.updateEnd(questionNum, chkQuest);
 
                 updateResultInterface();
             }

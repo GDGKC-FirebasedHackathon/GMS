@@ -40,9 +40,8 @@ public class QuestionController {
         FirebaseDatabase.getInstance().getReference().updateChildren(childUpdates);
     }
 
-    public static void updateEnd(String questionNum) {
-        Map<String, Object> updateValues = new HashMap<>();;
-        updateValues.put("isEnd", "true");
+    public static void updateEnd(String questionNum, Question question) {
+        Map<String, Object> updateValues = question.makeQuestionMap();
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put("/questions/" + questionNum, updateValues);
 
