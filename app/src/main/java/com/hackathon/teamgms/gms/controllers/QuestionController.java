@@ -12,9 +12,12 @@ import java.util.Map;
 public class QuestionController {
     private static final String TAG = QuestionController.class.getSimpleName();
 
-    public static void updateEnd(String questionNum) { //
-        Map<String, Object> updateValues = new HashMap<>();
+    public static void updateEnd(String questionNum) {
+        Map<String, Object> updateValues = new HashMap<>();;
         updateValues.put("isEnd", "true");
-        FirebaseDatabase.getInstance().getReference().child("questions").child(questionNum).updateChildren(updateValues);
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put("/questions/" + questionNum, updateValues);
+
+        FirebaseDatabase.getInstance().getReference().updateChildren(childUpdates);
     }
 }
