@@ -1,5 +1,6 @@
 package com.hackathon.teamgms.gms.controllers;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -25,7 +26,7 @@ public class DBController {
         dbHelper.close();
     }
 
-    public void putQuestionNum(String questionNum) {
+    public void createQuestionNum(String questionNum) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         db.execSQL("insert into " + DBHelper.TABLE_QUESTION + " VALUES (null, '" + questionNum + "', 0" + ");");
@@ -33,7 +34,7 @@ public class DBController {
         dbHelper.close();
     }
 
-    public String getQuestionNum() {
+    public String readQuestionNum() {
         String getQuestionNum = null;
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 /*
@@ -46,6 +47,20 @@ public class DBController {
         dbHelper.close();
 
         return getQuestionNum;
+    }
+
+    public void updateIsEnd(String questionNum) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues raw = new ContentValues();
+        raw.put("isEnd", 1);
+
+        String whereClause = "questionNum=?";
+        String whereArgs[] = new String[] { questionNum };
+
+        db.update(DBHelper.TABLE_QUESTION, raw, whereClause, whereArgs);
+
+        dbHelper.close();
     }
 
 }
