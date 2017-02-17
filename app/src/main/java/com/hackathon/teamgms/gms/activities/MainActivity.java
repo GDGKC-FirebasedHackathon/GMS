@@ -25,13 +25,14 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hackathon.teamgms.gms.BaseActivity;
 import com.hackathon.teamgms.gms.R;
 import com.hackathon.teamgms.gms.controllers.UserController;
 import com.hackathon.teamgms.gms.models.User;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
+public class MainActivity extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
     private final String TAG = MainActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 9001;
 
@@ -135,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+        showProgressDialog();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -150,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                             Toast.makeText(MainActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-                        // ...
+                        hideProgressDialog();
                     }
                 });
     }

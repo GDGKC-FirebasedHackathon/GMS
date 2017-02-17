@@ -122,6 +122,22 @@ public class HomeActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
+        mUserReference.child(mFirebaseUid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = User.parseSnapshot(dataSnapshot);
+                if (user.isDeleted != null && user.isDeleted == false) {
+                    mUser = user;
+                }
+                //update ui
+                updateUserInterface();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
+        });
         final Intent intent = new Intent(this, AnswerActivity.class);
 
         ValueEventListener questionListener = new ValueEventListener() {

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.1_74025e39ca8d3eccc2de3f906a775af62c6e8182/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.0.1_0f9e6c2ee2e830a4d110a5628e60c7bb60f4d538/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.1_83889529222c2e9827a1abdea602a4b42c3b9f9c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.1_f4015084e74d4329d88bd1665511350475dc2abf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6bd3dc0e5ab6f75d8d778b2c7288a1b0837bd497">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_9d546e43920354c01e3d5d9e7899807695757929/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-10.0.1_66d14aa4a269fc7b915eec35b73f52e2fc94395d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.1_8acdcc8bfa1655bfb5166b7edbbdfc45b8f2c5e6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.0.1_f5bf9625602c95076fac9bbb169cf28aba8c4a2a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.0.1_b6121d0acac4fcf0e489bac71bc819ab4e9b031a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/glide-3.7.0_31bca5593507dc5ab43025485bc76f06074dcf57/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.1.1_76acfe38217ecb45373b88bb98508b146fe89778/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.1_8dd091035a7557997324e2ccdd6de3563d968172/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.0.1_0be4615ac0d8e07dc85bdcd2cf96e57181da78bd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-10.0.1_f7fe0cfc5ac115b98c42ba9c6cdbe4ac953e271c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.0.1_97ea782c4c235be518ceee76b962dce2e33c1f6a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.1.1_b475f05525fae90862f3eaefceb11cc2ab22d248/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.1_105f6274aab2a83c1e35ed769a1ac4a25d280ba7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.1_993cc5241016fbf44cb22258379c5da25367542e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.0.1_6dfd9fd00ae751e729751106665f0d5bd9e7087b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9bcac106bc8148816763439ee28907d1f52160b8">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_90e10d5c6de7878a077e69e67a1107cbce2b8686/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.0.1_ecc5b3ddebc96f8014b57a93c0e2cf21f4dfd5d5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.0.1_48924a83020610e04e3ed301af61e769bd1a6d5d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.1_712914efa3cf8822e728536240eedbad8214fc5d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.0.1_8def196a59251b4895518eb00fe07adf6ada4121/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.1_b32dbde4f2cdc8ff965526db345dc859733338e0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.0.1_b150334b418d579ed886084c42f1b7d9e698e048/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.1.1_59f6c779d9ad7a4f8eeb5dd8e258fd3128cb2782/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/Users/yunjeonghwang/Documents/GMS/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.1_5fc0881754a2f5554b3abadcd4e68a859e99e5fb/classes.dex" />
+    </item>
+
+</items>
