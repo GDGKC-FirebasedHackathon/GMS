@@ -1,5 +1,6 @@
 package com.hackathon.teamgms.gms.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
@@ -26,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hackathon.teamgms.gms.BaseActivity;
+import com.hackathon.teamgms.gms.Config;
 import com.hackathon.teamgms.gms.R;
 import com.hackathon.teamgms.gms.controllers.UserController;
 import com.hackathon.teamgms.gms.models.User;
@@ -78,8 +80,11 @@ public class MainActivity extends BaseActivity implements GoogleApiClient.OnConn
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
 
                     UserController.createUser(user.getUid(), user.getEmail(), user.getDisplayName(), user.getPhotoUrl().toString());
-                    //TODO
-//                    SharedPreferences
+                    SharedPreferences preferences = getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+                    //Getting editor
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString(Config.SHARED_UID, user.getUid());
+                    editor.commit();
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);
                 } else {

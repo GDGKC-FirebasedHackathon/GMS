@@ -143,6 +143,7 @@ public class HomeActivity extends AppCompatActivity
                 Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         });
+
         final Intent intent = new Intent(this, AnswerActivity.class);
 
         ValueEventListener questionListener = new ValueEventListener() {
