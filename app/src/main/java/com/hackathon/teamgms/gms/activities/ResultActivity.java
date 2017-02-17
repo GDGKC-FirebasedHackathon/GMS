@@ -47,7 +47,6 @@ public class ResultActivity extends AppCompatActivity {
         countThree = (long)0;
         countFour = (long)0;
 
-
         /*
         //mFirebaseUid = UserUtil.loadUserFirebaseUid();
 
@@ -59,8 +58,8 @@ public class ResultActivity extends AppCompatActivity {
         }*/
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        mDataReference = database.getReference(""); //답변트리 전체
-        mQuestionReference = database.getReference(""); //질문트리에서 맞는거 찾아야해...
+        mDataReference = database.getReference("answers");
+        mQuestionReference = database.getReference("questions");
 
     }
 
