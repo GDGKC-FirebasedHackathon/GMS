@@ -155,11 +155,11 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Question question = Question.parseQuestionSnapshot(dataSnapshot);
-                //if(!question.isEnd) {
+                if(!question.isEnd) {
                     intent.putExtra("question", question);
                 Log.d("abc", question.choice1);
                     startActivity(intent);
-                //}
+                }
             }
 
             @Override
