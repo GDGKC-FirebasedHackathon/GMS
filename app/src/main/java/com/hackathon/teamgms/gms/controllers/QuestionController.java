@@ -34,7 +34,7 @@ public class QuestionController {
         updateValues.put("choice2", "2번 선택지");
         updateValues.put("choice3", "3번 선택지");
         updateValues.put("choice4", "4번 선택지");
-        updateValues.put("isEnd", false);
+        updateValues.put("isEnd", true);
         updateValues.put("endTime", "");
         updateValues.put("endCount", 0);
 
