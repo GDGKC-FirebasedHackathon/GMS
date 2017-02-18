@@ -23,6 +23,8 @@
             android:name=".activities.SendQuestionActivity"
             android:label="@string/send_activity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.ResultActivity"></activity>
+        <activity android:name=".activities.AnswerActivity"></activity>
     </application>
 
 </manifest>

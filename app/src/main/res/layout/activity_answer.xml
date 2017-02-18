@@ -62,6 +62,7 @@
             android:text="Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_send" />
+            android:id="@+id/btn_send"
+            android:onClick="onClick"/>
     </LinearLayout>
 </RelativeLayout>

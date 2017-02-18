@@ -1,5 +1,7 @@
 package com.hackathon.teamgms.gms.models;
 
+import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 
 import java.io.Serializable;
@@ -64,6 +66,10 @@ public class Question implements Serializable{
         result.put("choice2", choice2);
         result.put("choice3", choice3);
         result.put("choice4", choice4);
+        result.put("choice1Count", choice1Count);
+        result.put("choice2Count", choice2Count);
+        result.put("choice3Count", choice3Count);
+        result.put("choice4Count", choice4Count);
         result.put("isEnd", isEnd);
         result.put("endTime", endTime);
         result.put("endCount", endCount);

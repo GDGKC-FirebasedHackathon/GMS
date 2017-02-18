@@ -50,6 +50,10 @@ public class SendQuestionActivity extends AppCompatActivity {
                 et_choice2.getText().toString(),
                 et_choice3.getText().toString(),
                 et_choice4.getText().toString(),
+                new Long(0),
+                new Long(0),
+                new Long(0),
+                new Long(0),
                 new Boolean(false),
                 et_endTime.getText().toString(),
                 Long.parseLong(et_endCount.getText().toString()));

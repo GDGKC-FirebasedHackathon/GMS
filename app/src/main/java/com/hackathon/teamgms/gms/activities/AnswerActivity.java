@@ -34,7 +34,7 @@ public class AnswerActivity extends AppCompatActivity {
     Question chkQuest;
 
     //
-    int qCount;
+    Long qCount;
     String questionNum;
 
     @Override
@@ -110,16 +110,18 @@ public class AnswerActivity extends AppCompatActivity {
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             switch(checkedId) {
                 case R.id.rb_one :
-                    check = 1;
+                    check = 1;Log.d("abc", check+"");
                     break;
                 case R.id.rb_two :
-                    check = 2;
+                    check = 2;Log.d("abc", check+"");
                     break;
                 case R.id.rb_three :
                     check = 3;
+                    Log.d("abc", check+"");
                     break;
                 case R.id.rb_four :
                     check = 4;
+                    Log.d("abc", check+"");
                     break;
             }
         }
@@ -138,21 +140,22 @@ public class AnswerActivity extends AppCompatActivity {
             if(check != 0) {
                 switch (check) {
                     case 1:
-                        qCount = chkQuest.choice1Count.intValue();
+                        qCount = chkQuest.choice1Count;
                         break;
                     case 2:
-                        qCount = chkQuest.choice2Count.intValue();
+                        qCount = chkQuest.choice2Count;
                         break;
                     case 3:
-                        qCount = chkQuest.choice3Count.intValue();
+                        qCount = chkQuest.choice3Count;
                         break;
                     case 4:
-                        qCount = chkQuest.choice4Count.intValue();
+                        qCount = chkQuest.choice4Count;
                         break;
                 }
-                qCount++;
+                qCount = qCount+ 1;
 
-                QuestionController.updateChoice(questionNum,check,qCount);
+                QuestionController.updateChoice("question",check,qCount);
+
                 //onUpdateData(mReference);
             }
         }

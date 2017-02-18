@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -127,7 +128,7 @@ public class HomeActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
-        mUserReference.child(mFirebaseUid).addListenerForSingleValueEvent(new ValueEventListener() {
+        ValueEventListener userListner = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = User.parseSnapshot(dataSnapshot);
@@ -142,18 +143,23 @@ public class HomeActivity extends AppCompatActivity
             public void onCancelled(DatabaseError databaseError) {
                 Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
-        });
+        };
+
+        mUserReference.child(mFirebaseUid).addListenerForSingleValueEvent(userListner);
 
         final Intent intent = new Intent(this, AnswerActivity.class);
+
+        DatabaseReference questionReference = FirebaseDatabase.getInstance().getReference().child("questions").child("question");
 
         ValueEventListener questionListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Question question = Question.parseQuestionSnapshot(dataSnapshot);
-                if(!question.isEnd) {
+                //if(!question.isEnd) {
                     intent.putExtra("question", question);
+                Log.d("abc", question.choice1);
                     startActivity(intent);
-                }
+                //}
             }
 
             @Override
@@ -161,6 +167,8 @@ public class HomeActivity extends AppCompatActivity
 
             }
         };
+
+        questionReference.addValueEventListener(questionListener);
     }
 
     @Override
